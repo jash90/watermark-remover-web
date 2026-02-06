@@ -10,7 +10,7 @@ async function bootstrap() {
     'http://localhost:5173',
     'http://localhost:4173',
     'http://127.0.0.1:5173',
-    'https://frontend-one-red-58.vercel.app', // Production frontend
+    'https://watermark-remover-web.vercel.app', // Production frontend
   ];
   const corsOrigins = process.env.FRONTEND_URL
     ? [...process.env.FRONTEND_URL.split(','), ...defaultOrigins]

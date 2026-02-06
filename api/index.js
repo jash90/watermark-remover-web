@@ -15,8 +15,16 @@ async function bootstrap() {
       logger: ['error', 'warn'],
     });
 
+    const corsOrigins = process.env.FRONTEND_URL
+      ? process.env.FRONTEND_URL.split(',')
+      : [
+          'https://watermark-remover-web.vercel.app',
+          'http://localhost:5173',
+          'http://localhost:4173',
+        ];
+
     app.enableCors({
-      origin: true,
+      origin: corsOrigins,
       methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization', 'X-Gemini-Api-Key'],
       credentials: true,
