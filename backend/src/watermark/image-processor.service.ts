@@ -13,8 +13,9 @@ import {
 } from '../common/exceptions/watermark.exceptions';
 
 const SUPPORTED_FORMATS = ['png', 'jpeg', 'jpg', 'webp', 'gif'];
-const UPLOADS_DIR = path.join(process.cwd(), 'uploads');
-const PROCESSED_DIR = path.join(process.cwd(), 'processed');
+const BASE_DIR = process.env.VERCEL ? '/tmp' : process.cwd();
+const UPLOADS_DIR = path.join(BASE_DIR, 'uploads');
+const PROCESSED_DIR = path.join(BASE_DIR, 'processed');
 
 // Gemini API max dimension limit
 const MAX_DIMENSION = 4096;
