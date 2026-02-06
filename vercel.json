@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "installCommand": "npm install && cd backend && npm install && cd ../frontend && npm install",
+  "buildCommand": "cd backend && npm run build && rm -rf node_modules && cd ../frontend && npm run build",
+  "outputDirectory": "frontend/build",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "backend/dist/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api" }
+  ],
+  "crons": [
+    {
+      "path": "/api/watermark/cleanup",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
